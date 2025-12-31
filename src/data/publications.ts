@@ -9,7 +9,7 @@ export interface Publication {
     label: string;
     url?: string;
   }>;
-  thumbnail?: string;
+  thumbnails?: string[];
 }
 
 export const publications: Publication[] = [
@@ -24,7 +24,6 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'int', label: 'Int.' },
     ],
-    thumbnail: '/images/pub-1.jpg',
   },
   {
     id: 'pub-2',
@@ -37,7 +36,6 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'int', label: 'Int.' },
     ],
-    thumbnail: '/images/pub-2.jpg',
   },
   {
     id: 'pub-3',
@@ -50,7 +48,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'int', label: 'Int.' },
     ],
-    thumbnail: '/images/pub-3.jpg',
+    thumbnails: ['/images/pub-3-1.png', '/images/pub-3-2.png', '/images/pub-3-3.png'],
   },
   {
     id: 'pub-4',
@@ -63,7 +61,6 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'int', label: 'Int.' },
     ],
-    thumbnail: '/images/pub-4.jpg',
   },
   {
     id: 'pub-5',
@@ -76,7 +73,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'dom', label: 'Dom.' },
     ],
-    thumbnail: '/images/pub-5.jpg',
+    thumbnails: ['/images/pub-1-1.png'],
   },
   {
     id: 'pub-6',
@@ -89,7 +86,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'dom', label: 'Dom.' },
     ],
-    thumbnail: '/images/pub-6.jpg',
+    thumbnails: ['/images/pub-2-1.png'],
   },
   {
     id: 'pub-7',
@@ -103,7 +100,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'dom', label: 'Dom.' },
     ],
-    thumbnail: '/images/pub-7.jpg',
+    thumbnails: ['/images/pub-4-1.png', '/images/pub-4-2.png', '/images/pub-4-3.png'],
   },
   {
     id: 'pub-8',
@@ -117,7 +114,6 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'dom', label: 'Dom.' },
     ],
-    thumbnail: '/images/pub-8.jpg',
   },
   {
     id: 'pub-9',
@@ -130,6 +126,6 @@ export const publications: Publication[] = [
       { type: 'ect', label: 'Ect.' },
       { type: 'dom', label: 'Dom.' },
     ],
-    thumbnail: '/images/pub-9.jpg',
+    thumbnails: ['/images/pub-9-1.png', '/images/pub-9-2.png'],
   },
 ];
