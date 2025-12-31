@@ -6,6 +6,7 @@ export interface Experience {
   location?: string;
   year: string;
   thumbnail?: string;
+  thumbnails?: string[];
 }
 
 export const experiences: Experience[] = [
@@ -16,7 +17,7 @@ export const experiences: Experience[] = [
     organization: '한국문화예술위원회',
     location: 'Seoul',
     year: '2025',
-    thumbnail: '/images/exp-1.jpg',
+    thumbnails: ['/images/exp-1-1.png'],
   },
   {
     id: 'exp-2',
@@ -25,7 +26,7 @@ export const experiences: Experience[] = [
     organization: 'KAIST',
     location: 'Republic of Korea',
     year: '2025',
-    thumbnail: '/images/exp-2.jpg',
+    thumbnails: ['/images/exp-2-1.png', '/images/exp-2-2.png', '/images/exp-2-3.png', '/images/exp-2-4.png'],
   },
   {
     id: 'exp-3',
@@ -34,6 +35,6 @@ export const experiences: Experience[] = [
     organization: 'Hong Kong Polytechnic University',
     location: 'Hong Kong',
     year: '2025',
-    thumbnail: '/images/exp-3.jpg',
+    thumbnails: ['/images/exp-3-1.png', '/images/exp-3-2.png'],
   },
 ];
