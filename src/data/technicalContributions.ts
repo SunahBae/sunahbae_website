@@ -8,7 +8,7 @@ export interface TechnicalContribution {
     label: string;
     url?: string;
   }>;
-  thumbnail?: string;
+  thumbnails?: string[];
 }
 
 export const technicalContributions: TechnicalContribution[] = [
@@ -20,6 +20,13 @@ export const technicalContributions: TechnicalContribution[] = [
     badges: [
       { type: 'link', label: 'Link', url: 'https://joonhyungbae.com/#/post/2022-art-thief-of-truth' },
     ],
-    thumbnail: '/images/tech-1.jpg',
+    thumbnails: [
+      '/images/tech-1-1.png',
+      '/images/tech-1-2.png',
+      '/images/tech-1-3.png',
+      '/images/tech-1-4.png',
+      '/images/tech-1-5.png',
+      '/images/tech-1-6.png',
+    ],
   },
 ];
