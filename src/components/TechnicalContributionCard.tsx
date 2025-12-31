@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge } from './Badge';
+import { ImageCarousel } from './ImageCarousel';
 import type { TechnicalContribution } from '@/data/technicalContributions';
 
 interface TechnicalContributionCardProps {
@@ -7,6 +8,8 @@ interface TechnicalContributionCardProps {
 }
 
 export const TechnicalContributionCard: React.FC<TechnicalContributionCardProps> = ({ item }) => {
+  const hasThumbnails = item.thumbnails && item.thumbnails.length > 0;
+
   return (
     <article className="py-5 border-b border-border last:border-b-0">
       <div className="flex flex-col md:flex-row gap-4">
@@ -31,18 +34,13 @@ export const TechnicalContributionCard: React.FC<TechnicalContributionCardProps>
           )}
         </div>
 
-        {item.thumbnail && (
+        {hasThumbnails && (
           <div className="w-full md:w-24 lg:w-28 flex-shrink-0 order-first md:order-last">
-            <div className="aspect-[4/3] bg-secondary overflow-hidden rounded-sm">
-              <img
-                src={item.thumbnail}
-                alt={item.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            </div>
+            <ImageCarousel
+              images={item.thumbnails!}
+              alt={item.title}
+              aspectRatio="video"
+            />
           </div>
         )}
       </div>

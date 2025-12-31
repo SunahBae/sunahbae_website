@@ -24,6 +24,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'int', label: 'Int.' },
     ],
+    thumbnails: ['/images/pub-1-xr.png'],
   },
   {
     id: 'pub-2',
@@ -36,6 +37,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'int', label: 'Int.' },
     ],
+    thumbnails: ['/images/pub-2-vr.png'],
   },
   {
     id: 'pub-3',
@@ -61,6 +63,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'int', label: 'Int.' },
     ],
+    thumbnails: ['/images/pub-4-cf.png'],
   },
   {
     id: 'pub-5',
@@ -114,6 +117,7 @@ export const publications: Publication[] = [
       { type: 'conf', label: 'Conf.' },
       { type: 'dom', label: 'Dom.' },
     ],
+    thumbnails: ['/images/pub-8-1.png'],
   },
   {
     id: 'pub-9',
