@@ -10,7 +10,7 @@ export interface Award {
     label: string;
     url?: string;
   }>;
-  thumbnail?: string;
+  thumbnails?: string[];
 }
 
 export const awards: Award[] = [
@@ -21,7 +21,7 @@ export const awards: Award[] = [
     organization: '국가과학기술인력개발원',
     location: '대한민국',
     year: '2023',
-    thumbnail: '/images/award-1.jpg',
+    thumbnails: ['/images/award-1-1.png'],
   },
   {
     id: 'award-2',
@@ -30,7 +30,7 @@ export const awards: Award[] = [
     organization: '서울산업진흥원',
     location: '대한민국',
     year: '2022',
-    thumbnail: '/images/award-2.jpg',
+    thumbnails: ['/images/award-2-1.png'],
   },
   {
     id: 'award-3',
@@ -42,6 +42,7 @@ export const awards: Award[] = [
     badges: [
       { type: 'video', label: 'Video', url: 'https://www.youtube.com/live/GVxkx1Iq8fI?si=iUiI-Gpo7kxHIhzt' },
     ],
+    thumbnails: ['/images/award-3-1.png'],
   },
   {
     id: 'award-4',

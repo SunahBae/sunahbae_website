@@ -8,7 +8,7 @@ export interface DesignItem {
     label: string;
     url?: string;
   }>;
-  thumbnail?: string;
+  thumbnails?: string[];
 }
 
 export const designItems: DesignItem[] = [
@@ -20,14 +20,14 @@ export const designItems: DesignItem[] = [
     badges: [
       { type: 'video', label: 'Video', url: 'https://www.youtube.com/watch?v=4Fk_6BVnf_o' },
     ],
-    thumbnail: '/images/design-1.jpg',
+    thumbnails: ['/images/design-1-1.png'],
   },
   {
     id: 'design-2',
     title: 'Signage design for KAIST Graduate School of Culture and Technology',
     description: 'Design the CT signage, KAIST CT, 2023',
     year: '2023',
-    thumbnail: '/images/design-2.jpg',
+    thumbnails: ['/images/design-2-1.png'],
   },
   {
     id: 'design-3',
@@ -37,6 +37,6 @@ export const designItems: DesignItem[] = [
     badges: [
       { type: 'link', label: 'Link', url: 'https://www.fsl.kaist.ac.kr/' },
     ],
-    thumbnail: '/images/design-3.jpg',
+    thumbnails: ['/images/design-3-1.png'],
   },
 ];
