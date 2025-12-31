@@ -12,11 +12,11 @@ const keywords = [
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="py-12 md:py-20">
-      <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+    <section className="py-8 md:py-12">
+      <div className="flex flex-col md:flex-row gap-10 md:gap-16 items-start">
         {/* Profile Image */}
         <div className="w-full md:w-auto flex-shrink-0">
-          <div className="w-full md:w-48 lg:w-56 aspect-[3/4] bg-secondary overflow-hidden">
+          <div className="w-full md:w-64 lg:w-72 aspect-[3/4] bg-secondary overflow-hidden">
             <img
               src="/images/profile.png"
               alt="Sun Ah Bae"
