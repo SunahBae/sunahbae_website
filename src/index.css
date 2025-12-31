@@ -153,7 +153,7 @@
 
   /* Keyword chip */
   .chip-keyword {
-    @apply inline-flex items-center px-3 py-1.5 rounded text-sm font-medium;
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium;
     background-color: hsl(var(--chip-keyword));
     color: hsl(var(--chip-keyword-foreground));
   }

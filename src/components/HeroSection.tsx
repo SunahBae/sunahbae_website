@@ -16,7 +16,7 @@ export const HeroSection: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-stretch">
         {/* Profile Image */}
         <div className="w-full md:w-auto flex-shrink-0">
-          <div className="w-full md:w-52 lg:w-56 aspect-[3/4] bg-secondary overflow-hidden">
+          <div className="w-full md:w-60 lg:w-64 aspect-[3/4] bg-secondary overflow-hidden">
             <img
               src="/images/profile.png"
               alt="Sun Ah Bae"
