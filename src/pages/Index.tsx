@@ -53,7 +53,7 @@ const Index = () => {
         {/* PROJECT Section */}
         {showProject && (
           <section className="py-8">
-            <div className="section-divider mb-8" />
+            {activeFilter === 'all' && <div className="section-divider mb-8" />}
             <SectionTitle title="PROJECT" />
             <div>
               {projects.map((proj) => (
@@ -67,7 +67,7 @@ const Index = () => {
         {showEct && (
           <>
             <section className="py-8">
-              <div className="section-divider mb-8" />
+              {activeFilter === 'all' && <div className="section-divider mb-8" />}
               <SectionTitle title="EXPERIENCE" />
               <div>
                 {experiences.map((exp) => (
