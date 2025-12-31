@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge } from './Badge';
+import { ImageCarousel } from './ImageCarousel';
 import type { Publication } from '@/data/publications';
 
 interface PublicationCardProps {
@@ -22,6 +23,8 @@ export const PublicationCard: React.FC<PublicationCardProps> = ({ publication })
       );
     });
   };
+
+  const hasThumbnails = publication.thumbnails && publication.thumbnails.length > 0;
 
   return (
     <article className="py-6 border-b border-border last:border-b-0">
@@ -46,19 +49,14 @@ export const PublicationCard: React.FC<PublicationCardProps> = ({ publication })
           </div>
         </div>
 
-        {/* Thumbnail */}
-        {publication.thumbnail && (
+        {/* Thumbnail Carousel */}
+        {hasThumbnails && (
           <div className="w-full md:w-24 lg:w-28 flex-shrink-0 order-first md:order-last">
-            <div className="aspect-[4/3] bg-secondary overflow-hidden rounded-sm">
-              <img
-                src={publication.thumbnail}
-                alt={publication.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            </div>
+            <ImageCarousel
+              images={publication.thumbnails!}
+              alt={publication.title}
+              aspectRatio="video"
+            />
           </div>
         )}
       </div>
