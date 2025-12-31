@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from './Badge';
+import { ImageCarousel } from './ImageCarousel';
 import type { Experience } from '@/data/experience';
 
 interface ExperienceCardProps {
@@ -7,6 +7,9 @@ interface ExperienceCardProps {
 }
 
 export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
+  const hasMultipleImages = experience.thumbnails && experience.thumbnails.length > 1;
+  const hasSingleImage = experience.thumbnails && experience.thumbnails.length === 1;
+
   return (
     <article className="py-5 border-b border-border last:border-b-0">
       <div className="flex flex-col md:flex-row gap-4">
@@ -20,11 +23,21 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) =>
           </p>
         </div>
 
-        {experience.thumbnail && (
-          <div className="w-full md:w-24 lg:w-28 flex-shrink-0 order-first md:order-last">
-            <div className="aspect-[4/3] bg-secondary overflow-hidden rounded-sm">
+        {hasMultipleImages && (
+          <div className="w-full md:w-32 lg:w-40 flex-shrink-0 order-first md:order-last">
+            <ImageCarousel 
+              images={experience.thumbnails!} 
+              alt={experience.title}
+              aspectRatio="video"
+            />
+          </div>
+        )}
+
+        {hasSingleImage && (
+          <div className="w-full md:w-32 lg:w-40 flex-shrink-0 order-first md:order-last">
+            <div className="aspect-video bg-secondary overflow-hidden rounded-sm">
               <img
-                src={experience.thumbnail}
+                src={experience.thumbnails![0]}
                 alt={experience.title}
                 className="w-full h-full object-cover"
                 onError={(e) => {
