@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge } from './Badge';
+import { ImageCarousel } from './ImageCarousel';
 import type { Award } from '@/data/awards';
 
 interface AwardCardProps {
@@ -7,6 +8,8 @@ interface AwardCardProps {
 }
 
 export const AwardCard: React.FC<AwardCardProps> = ({ award }) => {
+  const hasThumbnails = award.thumbnails && award.thumbnails.length > 0;
+
   const highlightName = (participants: string) => {
     return participants.split(', ').map((name, index, array) => {
       const isHighlighted = name.includes('Sun Ah Bae');
@@ -47,18 +50,13 @@ export const AwardCard: React.FC<AwardCardProps> = ({ award }) => {
           </p>
         </div>
 
-        {award.thumbnail && (
+        {hasThumbnails && (
           <div className="w-full md:w-24 lg:w-28 flex-shrink-0 order-first md:order-last">
-            <div className="aspect-[4/3] bg-secondary overflow-hidden rounded-sm">
-              <img
-                src={award.thumbnail}
-                alt={award.title}
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none';
-                }}
-              />
-            </div>
+            <ImageCarousel
+              images={award.thumbnails!}
+              alt={award.title}
+              aspectRatio="video"
+            />
           </div>
         )}
       </div>

@@ -8,7 +8,7 @@ export interface ArtWork {
     label: string;
     url?: string;
   }>;
-  thumbnail?: string;
+  thumbnails?: string[];
 }
 
 export const artworks: ArtWork[] = [
@@ -20,13 +20,13 @@ export const artworks: ArtWork[] = [
     badges: [
       { type: 'video', label: 'Video', url: 'https://youtu.be/LKfR1zKIPlY' },
     ],
-    thumbnail: '/images/art-1.jpg',
+    thumbnails: ['/images/art-1-1.png', '/images/art-1-2.png'],
   },
   {
     id: 'art-2',
     title: '<동동 DongDong>, 2022, mixed media, 420 X 350 X 800 (mm)',
     description: '제 47회 야외조각전, 홍익대학교, 대한민국, 2022',
     year: '2022',
-    thumbnail: '/images/art-2.jpg',
+    thumbnails: ['/images/art-2-1.png', '/images/art-2-2.png'],
   },
 ];
