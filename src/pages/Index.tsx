@@ -30,13 +30,19 @@ const Index = () => {
   const showEct = activeFilter === 'all' || activeFilter === 'ect';
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Header />
-        
-        <HeroSection />
-        
-        <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
+    <div className="min-h-screen bg-background snap-y snap-mandatory overflow-y-auto h-screen">
+      {/* Hero Section - Full Screen */}
+      <div className="snap-start h-screen flex flex-col">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center">
+          <Header />
+          <HeroSection />
+        </div>
+      </div>
+      
+      {/* Content Section */}
+      <div className="snap-start min-h-screen">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
         
         {/* PUBLICATION Section */}
         {showPublication && (
@@ -133,7 +139,8 @@ const Index = () => {
           </>
         )}
 
-        <Footer />
+          <Footer />
+        </div>
       </div>
     </div>
   );
