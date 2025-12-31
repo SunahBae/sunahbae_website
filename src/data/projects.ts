@@ -9,7 +9,7 @@ export interface Project {
     label: string;
     url?: string;
   }>;
-  thumbnail?: string;
+  thumbnails?: string[];
   media?: {
     type: 'video' | 'image';
     url: string;
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     badges: [
       { type: 'video', label: 'Video', url: 'https://youtu.be/WyMmuBkmWnY' },
     ],
-    thumbnail: '/images/proj-3.jpg',
+    thumbnails: ['/images/proj-3-1.png', '/images/proj-3-2.png'],
     media: {
       type: 'video',
       url: 'https://youtu.be/WyMmuBkmWnY',
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     badges: [
       { type: 'video', label: 'Video', url: 'https://youtu.be/_C3HSRGN-7Y' },
     ],
-    thumbnail: '/images/proj-4.jpg',
+    thumbnails: ['/images/proj-4-1.png'],
     media: {
       type: 'video',
       url: 'https://youtu.be/_C3HSRGN-7Y',
@@ -70,6 +70,6 @@ export const projects: Project[] = [
     badges: [
       { type: 'link', label: 'Link', url: 'https://www.si.re.kr/sites/default/files/20-17.pdf' },
     ],
-    thumbnail: '/images/proj-5.jpg',
+    thumbnails: ['/images/proj-5-1.png', '/images/proj-5-2.png'],
   },
 ];
