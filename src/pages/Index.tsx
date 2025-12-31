@@ -34,7 +34,7 @@ const Index = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Header />
         
-        <HeroSection profileImage="/images/profile.jpg" />
+        <HeroSection />
         
         <FilterBar activeFilter={activeFilter} onFilterChange={setActiveFilter} />
         
