@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +60,27 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        badge: {
+          link: "hsl(var(--badge-link))",
+          "link-foreground": "hsl(var(--badge-link-foreground))",
+          video: "hsl(var(--badge-video))",
+          "video-foreground": "hsl(var(--badge-video-foreground))",
+          gray: "hsl(var(--badge-gray))",
+          "gray-foreground": "hsl(var(--badge-gray-foreground))",
+          ect: "hsl(var(--badge-ect))",
+          "ect-foreground": "hsl(var(--badge-ect-foreground))",
+        },
+        chip: {
+          keyword: "hsl(var(--chip-keyword))",
+          "keyword-foreground": "hsl(var(--chip-keyword-foreground))",
+          filter: "hsl(var(--chip-filter))",
+          "filter-foreground": "hsl(var(--chip-filter-foreground))",
+          "filter-border": "hsl(var(--chip-filter-border))",
+          "filter-active": "hsl(var(--chip-filter-active))",
+          "filter-active-foreground": "hsl(var(--chip-filter-active-foreground))",
+          "filter-active-border": "hsl(var(--chip-filter-active-border))",
+        },
+        divider: "hsl(var(--divider))",
       },
       borderRadius: {
         lg: "var(--radius)",
