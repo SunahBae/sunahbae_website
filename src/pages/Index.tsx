@@ -32,9 +32,13 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background snap-y snap-mandatory overflow-y-auto h-screen">
       {/* Hero Section - Full Screen */}
-      <div className="snap-start h-screen flex flex-col">
-        <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 w-full flex-1 flex flex-col justify-center">
+      <div className="snap-start h-screen flex flex-col relative">
+        {/* Header - Fixed Top Left */}
+        <div className="absolute top-0 left-0 w-full px-6 sm:px-10 lg:px-12">
           <Header />
+        </div>
+        {/* Centered Content */}
+        <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 w-full flex-1 flex items-center justify-center">
           <HeroSection />
         </div>
       </div>
