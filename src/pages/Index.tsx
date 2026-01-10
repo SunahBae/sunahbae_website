@@ -30,15 +30,15 @@ const Index = () => {
   const showEct = activeFilter === 'all' || activeFilter === 'ect';
 
   return (
-    <div className="min-h-screen bg-background snap-y snap-mandatory overflow-y-auto h-screen">
-      {/* Hero Section - Full Screen */}
-      <div className="snap-start h-screen flex flex-col relative">
+    <div className="min-h-screen bg-background md:snap-y md:snap-mandatory md:overflow-y-auto md:h-screen">
+      {/* Hero Section - Full Screen on desktop, auto height on mobile */}
+      <div className="md:snap-start min-h-screen md:h-screen flex flex-col relative">
         {/* Header - Fixed Top Left */}
         <div className="absolute top-0 left-0 w-full px-6 sm:px-10 lg:px-12">
           <Header />
         </div>
         {/* Centered Content */}
-        <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 w-full flex-1 flex items-center justify-center">
+        <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 w-full flex-1 flex items-center justify-center pt-20 pb-8 md:pt-0 md:pb-0">
           <HeroSection />
         </div>
       </div>
