@@ -2,12 +2,10 @@ import React from 'react';
 import { KeywordChip } from './KeywordChip';
 
 const keywords = [
-  'Spatial Design',
-  'Cultural Space',
-  'Spatial Experience',
-  'Biosignal',
+  'Spatial Experience Design',
   'Data Driven Design',
-  'VR/AR',
+  'Biosignal',
+  'XR',
 ];
 
 export const HeroSection: React.FC = () => {
