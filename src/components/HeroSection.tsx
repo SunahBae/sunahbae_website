@@ -5,6 +5,7 @@ const keywords = [
   'Spatial Experience Design',
   'Data Driven Design',
   'Biosignal',
+  'IoT',
   'XR',
 ];
 
