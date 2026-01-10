@@ -43,7 +43,7 @@ export const HeroSection: React.FC = () => {
 
           <div>
             {/* Keywords */}
-            <div className="grid grid-cols-2 gap-2 mb-4 md:flex md:flex-nowrap md:justify-between">
+            <div className="grid grid-cols-2 gap-2 mb-4 md:flex md:w-full md:flex-nowrap md:gap-2">
               {keywords.map((keyword) => (
                 <KeywordChip key={keyword} label={keyword} />
               ))}

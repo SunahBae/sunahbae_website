@@ -153,7 +153,7 @@
 
   /* Keyword chip */
   .chip-keyword {
-    @apply inline-flex items-center justify-center px-2.5 py-1 rounded text-xs font-medium w-full md:w-auto;
+    @apply inline-flex items-center justify-center whitespace-nowrap w-full md:w-auto px-2.5 py-1 md:px-2 md:py-0.5 rounded text-xs md:text-[11px] font-medium;
     background-color: hsl(var(--chip-keyword));
     color: hsl(var(--chip-keyword-foreground));
   }
