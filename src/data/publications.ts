@@ -14,6 +14,18 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: 'pub-10',
+    title: 'The Effect of Artwork Size on Visitor Attention in Museum Curatorial Arrangement',
+    authors: 'Dagyeom Chung, Sun Ah Bae, Gisung Han, Seung Hyun Cha',
+    venue: 'Design Computing and Cognition\'26, Paris, France, 8–10 July 2026',
+    year: '2026',
+    badges: [
+      { type: 'conf', label: 'Conf.' },
+      { type: 'int', label: 'Int.' },
+    ],
+    thumbnails: [],
+  },
+  {
     id: 'pub-1',
     title: 'A framework for analyzing XR media art through impossible spaces and interaction structures',
     authors: 'Jae Yeon Shin, Dagyeom Chung, Sun Ah Bae, Seung Hyun Cha',
