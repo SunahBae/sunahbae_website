@@ -11,6 +11,8 @@ import { DesignCard } from '@/components/DesignCard';
 import { ArtWorkCard } from '@/components/ArtWorkCard';
 import { AwardCard } from '@/components/AwardCard';
 import { ScholarshipItem } from '@/components/ScholarshipItem';
+import { BookCard } from '@/components/BookCard';
+import { PatentCard } from '@/components/PatentCard';
 import { Footer } from '@/components/Footer';
 
 import { publications } from '@/data/publications';
@@ -21,6 +23,8 @@ import { designItems } from '@/data/design';
 import { artworks } from '@/data/artwork';
 import { awards } from '@/data/awards';
 import { scholarships } from '@/data/scholarships';
+import { books } from '@/data/books';
+import { patents } from '@/data/patents';
 
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
@@ -76,8 +80,34 @@ const Index = () => {
         {/* EXPERIENCE Section (Ect) */}
         {showEct && (
           <>
+            {/* BOOK Section */}
+            {books.length > 0 && (
+              <section className="py-8">
+                {activeFilter === 'all' && <div className="section-divider mb-8" />}
+                <SectionTitle title="BOOK" />
+                <div>
+                  {books.map((book) => (
+                    <BookCard key={book.id} book={book} />
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* PATENT Section */}
+            {patents.length > 0 && (
+              <section className="py-8">
+                <div className="section-divider mb-8" />
+                <SectionTitle title="PATENT" />
+                <div>
+                  {patents.map((patent) => (
+                    <PatentCard key={patent.id} patent={patent} />
+                  ))}
+                </div>
+              </section>
+            )}
+
             <section className="py-8">
-              {activeFilter === 'all' && <div className="section-divider mb-8" />}
+              <div className="section-divider mb-8" />
               <SectionTitle title="EXPERIENCE" />
               <div>
                 {experiences.map((exp) => (
@@ -140,6 +170,7 @@ const Index = () => {
                 ))}
               </ul>
             </section>
+
           </>
         )}
 
