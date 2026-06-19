@@ -5,7 +5,7 @@ export interface Publication {
   venue: string;
   year: string;
   badges: Array<{
-    type: 'link' | 'video' | 'conf' | 'dom' | 'int' | 'ect';
+    type: 'link' | 'video' | 'conf' | 'dom' | 'int' | 'ect' | 'journal';
     label: string;
     url?: string;
   }>;
@@ -13,6 +13,31 @@ export interface Publication {
 }
 
 export const publications: Publication[] = [
+  {
+    id: 'pub-12',
+    title: 'Curve Type Matters: Emotional and Physiological Responses to Curved Walls in Virtual Reality Exhibition Space',
+    authors: 'Sun Ah Bae, Jisoo Kang, Seung Hyun Cha',
+    venue: 'Virtual Reality, Springer Nature [SCIE, Q1, 11.2%]',
+    year: '2026',
+    badges: [
+      { type: 'journal', label: 'Journal' },
+      { type: 'int', label: 'Int.' },
+    ],
+    thumbnails: [],
+  },
+  {
+    id: 'pub-11',
+    title: 'Virtual reality transition to underground: human responses across sequential spatial transitions',
+    authors: 'Koeun Jung, Kyunghyun Cho, Hyeokjin Choi, Sun Ah Bae, Sookyung Chun, Seung Hyun Cha',
+    venue: 'Scientific Reports, 2026 [SCIE, Q1, 18%]',
+    year: '2026',
+    badges: [
+      { type: 'link', label: 'Link', url: 'https://www.nature.com/articles/s41598-026-53532-1' },
+      { type: 'journal', label: 'Journal' },
+      { type: 'int', label: 'Int.' },
+    ],
+    thumbnails: [],
+  },
   {
     id: 'pub-10',
     title: 'The Effect of Artwork Size on Visitor Attention in Museum Curatorial Arrangement',
@@ -32,7 +57,7 @@ export const publications: Publication[] = [
     venue: 'Proceedings of the 12th International Conference on Digital and Interactive Arts (ARTECH 2025), Braga, Portugal, 26-28 November 2025',
     year: '2025',
     badges: [
-      { type: 'conf', label: 'Conf.' },
+      { type: 'conf', label: 'Conf.', url: 'https://dl.acm.org/doi/full/10.1145/3773699.3773931' },
       { type: 'int', label: 'Int.' },
     ],
     thumbnails: ['/images/pub-9-xr.png'],

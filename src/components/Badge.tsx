@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface BadgeProps {
-  type: 'link' | 'video' | 'conf' | 'dom' | 'int' | 'ect';
+  type: 'link' | 'video' | 'conf' | 'dom' | 'int' | 'ect' | 'journal';
   label: string;
   url?: string;
 }
