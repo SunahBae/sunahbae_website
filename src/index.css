@@ -44,18 +44,18 @@
     --radius: 0.25rem;
 
     /* Custom Portfolio Colors */
-    --badge-link: 172 66% 35%;
-    --badge-link-foreground: 0 0% 100%;
-    --badge-video: 45 93% 47%;
-    --badge-video-foreground: 0 0% 13%;
-    --badge-gray: 0 0% 75%;
-    --badge-gray-foreground: 0 0% 25%;
+    --badge-link: #EAEEF3;
+    --badge-link-foreground: #34455C;
+    --badge-video: #F2ECE1;
+    --badge-video-foreground: #6B5436;
+    --badge-gray: #E4E4E4;
+    --badge-gray-foreground: #5A5A5A;
     --badge-ect: 0 0% 65%;
     --badge-ect-foreground: 0 0% 100%;
-    --badge-conf: #F2ECE1;
-    --badge-conf-foreground: #6B5436;
-    --badge-journal: #EAEEF3;
-    --badge-journal-foreground: #34455C;
+    --badge-conf: #4A6FA5;
+    --badge-conf-foreground: #FFFFFF;
+    --badge-journal: #1E9484;
+    --badge-journal-foreground: #FFFFFF;
 
     /* Keyword chips - dark background */
     --chip-keyword: 0 0% 28%;
@@ -133,20 +133,20 @@
   /* Badge variants */
   .badge-link {
     @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium;
-    background-color: hsl(var(--badge-link));
-    color: hsl(var(--badge-link-foreground));
+    background-color: var(--badge-link);
+    color: var(--badge-link-foreground);
   }
 
   .badge-video {
     @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium;
-    background-color: hsl(var(--badge-video));
-    color: hsl(var(--badge-video-foreground));
+    background-color: var(--badge-video);
+    color: var(--badge-video-foreground);
   }
 
   .badge-gray {
     @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium;
-    background-color: hsl(var(--badge-gray));
-    color: hsl(var(--badge-gray-foreground));
+    background-color: var(--badge-gray);
+    color: var(--badge-gray-foreground);
   }
 
   .badge-ect {

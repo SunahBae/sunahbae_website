@@ -26,6 +26,20 @@ export const PublicationCard: React.FC<PublicationCardProps> = ({ publication })
 
   const hasThumbnails = publication.thumbnails && publication.thumbnails.length > 0;
 
+  // Badge display order: Conf./Journal → Dom./Int. → Link → Video
+  const badgeOrder: Record<string, number> = {
+    conf: 0,
+    journal: 0,
+    ect: 0,
+    dom: 1,
+    int: 1,
+    link: 2,
+    video: 3,
+  };
+  const sortedBadges = [...publication.badges].sort(
+    (a, b) => (badgeOrder[a.type] ?? 99) - (badgeOrder[b.type] ?? 99)
+  );
+
   return (
     <article className="py-6 border-b border-border last:border-b-0">
       <div className="flex flex-col md:flex-row gap-4">
@@ -38,7 +52,7 @@ export const PublicationCard: React.FC<PublicationCardProps> = ({ publication })
             {highlightAuthor(publication.authors)}, {publication.venue}
           </p>
           <div className="flex flex-wrap gap-1.5 mt-3">
-            {publication.badges.map((badge, index) => (
+            {sortedBadges.map((badge, index) => (
               <Badge
                 key={index}
                 type={badge.type}
