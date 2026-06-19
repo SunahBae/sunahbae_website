@@ -58,8 +58,8 @@
     --badge-journal-foreground: #FFFFFF;
 
     /* Keyword chips - dark background */
-    --chip-keyword: 0 0% 28%;
-    --chip-keyword-foreground: 0 0% 100%;
+    --chip-keyword: #004B49;
+    --chip-keyword-foreground: #FFFFFF;
 
     /* Filter chips */
     --chip-filter: 0 0% 100%;
@@ -170,8 +170,8 @@
   /* Keyword chip */
   .chip-keyword {
     @apply inline-flex items-center justify-center whitespace-nowrap px-2.5 py-1 md:px-2 md:py-0.5 rounded text-xs md:text-[11px] font-medium;
-    background-color: hsl(var(--chip-keyword));
-    color: hsl(var(--chip-keyword-foreground));
+    background-color: var(--chip-keyword);
+    color: var(--chip-keyword-foreground);
   }
 
   /* Filter chip */
