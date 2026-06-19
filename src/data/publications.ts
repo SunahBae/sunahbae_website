@@ -57,7 +57,8 @@ export const publications: Publication[] = [
     venue: 'Proceedings of the 12th International Conference on Digital and Interactive Arts (ARTECH 2025), Braga, Portugal, 26-28 November 2025',
     year: '2025',
     badges: [
-      { type: 'conf', label: 'Conf.', url: 'https://dl.acm.org/doi/full/10.1145/3773699.3773931' },
+      { type: 'link', label: 'Link', url: 'https://dl.acm.org/doi/full/10.1145/3773699.3773931' },
+      { type: 'conf', label: 'Conf.'},
       { type: 'int', label: 'Int.' },
     ],
     thumbnails: ['/images/pub-9-xr.png'],
