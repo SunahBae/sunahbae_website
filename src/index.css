@@ -52,6 +52,10 @@
     --badge-gray-foreground: 0 0% 25%;
     --badge-ect: 0 0% 65%;
     --badge-ect-foreground: 0 0% 100%;
+    --badge-conf: #F2ECE1;
+    --badge-conf-foreground: #6B5436;
+    --badge-journal: #EAEEF3;
+    --badge-journal-foreground: #34455C;
 
     /* Keyword chips - dark background */
     --chip-keyword: 0 0% 28%;
@@ -149,6 +153,18 @@
     @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium;
     background-color: hsl(var(--badge-ect));
     color: hsl(var(--badge-ect-foreground));
+  }
+
+  .badge-conf {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium;
+    background-color: var(--badge-conf);
+    color: var(--badge-conf-foreground);
+  }
+
+  .badge-journal {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium;
+    background-color: var(--badge-journal);
+    color: var(--badge-journal-foreground);
   }
 
   /* Keyword chip */

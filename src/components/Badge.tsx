@@ -14,6 +14,9 @@ export const Badge: React.FC<BadgeProps> = ({ type, label, url }) => {
       case 'video':
         return 'badge-video';
       case 'conf':
+        return 'badge-conf';
+      case 'journal':
+        return 'badge-journal';
       case 'dom':
       case 'int':
         return 'badge-gray';
