@@ -1,5 +1,4 @@
 import React from 'react';
-import { FilterChip } from './FilterChip';
 
 export type FilterType = 'all' | 'publication' | 'project' | 'ect';
 
@@ -12,22 +11,24 @@ const filters: { key: FilterType; label: string }[] = [
   { key: 'all', label: 'All' },
   { key: 'publication', label: 'Publication' },
   { key: 'project', label: 'Project' },
-  { key: 'ect', label: 'Ect' },
+  { key: 'ect', label: 'Etc.' },
 ];
 
 export const FilterBar: React.FC<FilterBarProps> = ({ activeFilter, onFilterChange }) => {
   return (
-    <div className="flex items-center justify-between py-6">
-      <div className="section-divider flex-1 mr-6" />
-      <div className="flex items-center gap-2">
-        {filters.map(({ key, label }) => (
-          <FilterChip
-            key={key}
-            label={label}
-            isActive={activeFilter === key}
-            onClick={() => onFilterChange(key)}
-          />
-        ))}
+    <div className="cat-nav-wrap">
+      <div className="site-container cat-nav">
+        <div className="cat-pills" role="group" aria-label="Content category">
+          {filters.map(({ key, label }) => (
+            <button
+              key={key}
+              className={activeFilter === key ? 'active' : ''}
+              onClick={() => onFilterChange(key)}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

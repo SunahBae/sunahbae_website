@@ -211,3 +211,426 @@
     @apply underline decoration-foreground/30 underline-offset-2;
   }
 }
+
+/* ============================================================
+   Shared page container — same width/gutter for every section
+   ============================================================ */
+.site-container {
+  max-width: 1060px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+/* ============================================================
+   Fixed top bar — logo left, section nav pills right
+   ============================================================ */
+.top-nav {
+  /* sticky (not fixed) so it shares the scroll container's coordinate system
+     and stays aligned with the content even when a scrollbar is visible */
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, #ffffff 94%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e8e8e5;
+}
+.top-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.top-nav .logo {
+  font: inherit;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #191c1a;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cat-pills {
+  margin-left: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+}
+.cat-pills button {
+  font: inherit;
+  font-size: 13.5px;
+  color: #5a635e;
+  background: none;
+  border: 1px solid #e8e8e5;
+  border-radius: 999px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.cat-pills button:hover { border-color: #939a95; }
+.cat-pills button.active {
+  color: #191c1a;
+  border-color: #191c1a;
+  font-weight: 500;
+}
+@media (max-width: 767.98px) {
+  .top-nav-inner {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .top-nav .logo { font-size: 17px; }
+  .cat-pills button {
+    font-size: 12.5px;
+    padding: 5px 12px;
+  }
+}
+
+/* ============================================================
+   Editorial list sections (Publication / Project / Etc. only)
+   Ported from design reference; scoped under .ed-section
+   ============================================================ */
+.ed-section {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 48px 0 64px;
+  scroll-margin-top: 64px;
+}
+.ed-section .side-col {
+  align-self: start;
+}
+/* Slide mode (desktop): each section fills one screen below the nav.
+   Long lists scroll INSIDE the section (.ed-list); when the list is
+   exhausted the wheel chains to the page, which snaps to the next section */
+@media (min-width: 768px) {
+  .ed-section {
+    height: calc(100vh - 64px);
+    overflow: hidden;
+    scroll-snap-align: start;
+    /* force a stop at every section so transitions feel deliberate */
+    scroll-snap-stop: always;
+    align-items: stretch;
+    padding: 36px 0 90px;
+  }
+  .ed-section .ed-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .ed-section .ed-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    /* auto (not contain) so reaching the list end chains to the page and
+       advances to the next section; snap-stop: always keeps it firm */
+    overscroll-behavior-y: auto;
+    scrollbar-width: none;
+  }
+  .ed-section .ed-list::-webkit-scrollbar { display: none; }
+  /* Left column stretches the full section height so the scrollbar track
+     can end exactly where the list content ends */
+  .ed-section .side-col {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Page-level footer pinned to the very bottom, shown on the last section */
+.site-footer-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  padding: 14px 0;
+  text-align: center;
+  font-size: 12px;
+  color: #939a95;
+  background: color-mix(in srgb, #ffffff 92%, transparent);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none;
+}
+.site-footer-fixed.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 767.98px) {
+  .site-footer-fixed { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-footer-fixed { transition: opacity 0.28s ease; transform: none; }
+}
+
+/* Custom section scrollbar (in the sticky left column, below the filters) */
+.section-scrollbar {
+  margin-top: 28px;
+  width: 5px;
+}
+/* keep layout (visibility, not display) so the track height stays measurable */
+.section-scrollbar.is-hidden { visibility: hidden; }
+.section-scrollbar .track {
+  position: relative;
+  width: 3px;
+  height: 200px;
+  margin-left: 1px;
+  background: #eeeeeb;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.section-scrollbar .thumb {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 5px;
+  border-radius: 3px;
+  background: #143f34;
+  cursor: grab;
+  touch-action: none;
+}
+.section-scrollbar .thumb:active { cursor: grabbing; }
+/* Desktop: track stretches from below the filters down to where the list ends */
+@media (min-width: 768px) {
+  .section-scrollbar {
+    flex: 1;
+    min-height: 0;
+    /* end the track above the list bottom for a less cramped feel */
+    margin-bottom: 28px;
+  }
+  .section-scrollbar .track { height: 100%; }
+}
+@media (max-width: 767.98px) {
+  .section-scrollbar { display: none; }
+}
+.ed-section .side-col .label {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #191c1a;
+}
+
+/* Side filters: multi-select checkboxes */
+.ed-section .side-filters {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.ed-section .side-filters .fgroup .g-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #939a95;
+  margin-bottom: 10px;
+}
+.ed-section .side-filters .opts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ed-section .side-filters label.opt {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13.5px;
+  color: #5a635e;
+  cursor: pointer;
+  padding: 3px 0;
+  transition: color 0.15s;
+  user-select: none;
+}
+.ed-section .side-filters label.opt:hover { color: #191c1a; }
+.ed-section .side-filters label.opt input {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #939a95;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  background: transparent;
+  margin: 0;
+}
+.ed-section .side-filters label.opt:hover input { border-color: #2f6a56; }
+.ed-section .side-filters label.opt input:checked {
+  background: #143f34;
+  border-color: #143f34;
+}
+.ed-section .side-filters label.opt input:checked::after {
+  content: "";
+  position: absolute;
+  left: 4.5px;
+  top: 1.5px;
+  width: 4px;
+  height: 8px;
+  border: solid #ffffff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.ed-section .side-filters label.opt:has(input:checked) {
+  color: #191c1a;
+  font-weight: 500;
+}
+.ed-section .filter-reset {
+  font: inherit;
+  font-size: 12.5px;
+  color: #939a95;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  width: fit-content;
+  visibility: hidden;
+}
+.ed-section .filter-reset.show { visibility: visible; }
+.ed-section .filter-reset:hover { color: #143f34; }
+
+/* Grouped list */
+.ed-section .year-group .year {
+  font-size: 15px;
+  font-weight: 600;
+  color: #939a95;
+  padding: 22px 0 10px;
+}
+.ed-section .year-group:first-child .year { padding-top: 0; }
+.ed-section .ed-row {
+  display: grid;
+  grid-template-columns: 1fr 170px;
+  gap: 28px;
+  align-items: start;
+  padding: 22px 0;
+  border-top: 1px solid #e8e8e5;
+}
+.ed-section .item-list .ed-row:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+/* rows without a thumbnail: text spans the full width (no reserved image column) */
+.ed-section .ed-row.no-thumb {
+  grid-template-columns: 1fr;
+}
+.ed-section .ed-row.no-thumb h3 {
+  max-width: none;
+}
+.ed-section .ed-row .meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 12.5px;
+  color: #939a95;
+  margin-bottom: 8px;
+}
+.ed-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.ed-badge.journal { color: #143f34; background: #e6eeea; }
+.ed-badge.conf    { color: #31517d; background: #e8edf5; }
+.ed-badge.scope   { color: #5a635e; background: #f0f0ed; }
+.ed-badge.etc     { color: #5a635e; background: #f0f0ed; }
+.ed-section .ed-row h3 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.45;
+  margin-bottom: 7px;
+  max-width: 54ch;
+  color: #191c1a;
+}
+.ed-section .ed-row h3 a {
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.ed-section .ed-row h3 a:hover {
+  color: #2f6a56;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+.ed-section .ed-row .authors {
+  font-size: 13.5px;
+  color: #5a635e;
+}
+.ed-section .ed-row .authors .me {
+  color: #191c1a;
+  font-weight: 500;
+  border-bottom: 1.5px solid #2f6a56;
+}
+.ed-section .vbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1;
+  color: #2f6a56;
+  background: transparent;
+  border: 1px solid #2f6a56;
+  border-radius: 999px;
+  padding: 2px 8px;
+  text-decoration: none;
+  margin-left: 8px;
+  vertical-align: 2px;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.ed-section .vbtn svg { width: 7px; height: 7px; fill: currentColor; }
+.ed-section .vbtn:hover {
+  color: #143f34;
+  border-color: #143f34;
+  background: #e6eeea;
+}
+.ed-section .ed-row .thumb { min-width: 0; }
+.ed-section .empty-state {
+  padding: 40px 0;
+  border-top: 1px solid #e8e8e5;
+  color: #939a95;
+  font-size: 14px;
+}
+
+@media (max-width: 767.98px) {
+  .ed-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 40px 0 24px;
+    scroll-margin-top: 96px;
+  }
+  .ed-section .side-filters {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 14px;
+  }
+  .ed-section .side-filters .opts {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .ed-section .ed-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .ed-section .ed-row .thumb { max-width: 240px; }
+  .ed-section .ed-row .thumb.empty { display: none; }
+}
