@@ -9,6 +9,8 @@ export interface Publication {
     label: string;
     url?: string;
   }>;
+  /** Publication status shown as a badge, e.g. "Submitted" (omit if published). */
+  status?: string;
   thumbnails?: string[];
 }
 
@@ -19,6 +21,7 @@ export const publications: Publication[] = [
     authors: 'Sun Ah Bae, Jisoo Kang, Seung Hyun Cha',
     venue: 'Virtual Reality, Springer Nature [SCIE, Q1, 11.2%]',
     year: '2026',
+    status: 'Submitted',
     badges: [
       { type: 'journal', label: 'Journal' },
       { type: 'int', label: 'Int.' },

@@ -145,6 +145,9 @@ export const PublicationSection: React.FC = () => {
                   key={pub.id}
                   meta={
                     <>
+                      {pub.status && (
+                        <span className="ed-badge submitted">{pub.status}</span>
+                      )}
                       <span className={`ed-badge ${type === 'ect' ? 'etc' : type}`}>
                         {badgeLabel(type, venue.grade)}
                       </span>

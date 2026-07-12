@@ -550,6 +550,13 @@
 .ed-badge.conf    { color: #31517d; background: #e8edf5; }
 .ed-badge.scope   { color: #5a635e; background: #f0f0ed; }
 .ed-badge.etc     { color: #5a635e; background: #f0f0ed; }
+/* pending status (e.g. not yet published) — warm, outlined to stand apart */
+.ed-badge.submitted {
+  color: #9a6a1c;
+  background: #fbf1de;
+  border: 1px solid #e7cf9f;
+  padding: 2px 9px;
+}
 .ed-section .ed-row h3 {
   font-size: 17px;
   font-weight: 600;
