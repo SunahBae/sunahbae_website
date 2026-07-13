@@ -4,7 +4,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { PublicationSection } from '@/components/PublicationSection';
 import { ProjectSection } from '@/components/ProjectSection';
 import { EtcSection } from '@/components/EtcSection';
-import { Footer } from '@/components/Footer';
+import { Footer, COPYRIGHT_TEXT } from '@/components/Footer';
 
 const Index = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -204,7 +204,7 @@ const Index = () => {
       {/* About (hero) - fills the first screen below the nav */}
       <div
         id="about"
-        className="min-h-screen md:min-h-0 md:h-[calc(100vh-64px)] md:overflow-hidden md:snap-start md:snap-always scroll-mt-[88px] md:scroll-mt-16 flex flex-col"
+        className="min-h-screen md:min-h-0 md:h-[calc(100vh-64px)] md:overflow-hidden md:snap-start md:snap-always scroll-mt-[52px] md:scroll-mt-16 flex flex-col"
       >
         <div className="site-container w-full flex-1 flex flex-col min-h-0">
           <HeroSection />
@@ -225,7 +225,7 @@ const Index = () => {
 
       {/* Page-level footer, pinned to the bottom on the last section (desktop) */}
       <div className={`site-footer-fixed${atBottom ? ' show' : ''}`} aria-hidden={!atBottom}>
-        © 2026.06 Sun Ah Bae. All rights reserved. | sa.bae@kaist.ac.kr
+        {COPYRIGHT_TEXT}
       </div>
     </div>
   );
