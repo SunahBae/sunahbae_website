@@ -1,5 +1,5 @@
 import React from 'react';
-import { KeywordChip } from './KeywordChip';
+import { RecentTicker } from './RecentTicker';
 
 const keywords = [
   'Spatial Experience Design',
@@ -9,85 +9,71 @@ const keywords = [
   'XR',
 ];
 
+// hrefs carried over verbatim from the previous icon links
+const links = [
+  {
+    label: 'CV',
+    href: 'https://drive.google.com/file/d/1CpTFSzOtNIyO232ccVjlnij7SeNXd-59/view?usp=sharing',
+    external: true,
+  },
+  { label: 'Email', href: 'mailto:sa.bae@kaist.ac.kr', external: false },
+  {
+    label: 'Google Scholar',
+    href: 'https://scholar.google.com/citations?hl=en&user=5VLxQekAAAAJ',
+    external: true,
+  },
+  { label: 'LinkedIn', href: 'http://www.linkedin.com/in/sunahbae', external: true },
+];
+
 export const HeroSection: React.FC = () => {
   return (
-    <section>
-      <div className="flex flex-col md:flex-row gap-8 md:gap-10 items-stretch">
-        {/* Profile Image */}
-        <div className="w-full md:w-auto flex-shrink-0">
-          <div className="w-full md:w-60 lg:w-64 aspect-[3/4] bg-secondary overflow-hidden">
-            <img
-              src="/images/profile.png"
-              alt="Sun Ah Bae"
-              className="w-full h-full object-cover"
-            />
+    <div className="hero-col">
+      <div className="hero-center">
+        <div className="hero-grid">
+          <div className="hero-photo">
+            <img src="/images/profile.png" alt="Sun Ah Bae" />
           </div>
-        </div>
-
-        {/* Bio Content - Fits within image height */}
-        <div className="flex-1 flex flex-col justify-between py-0">
-          <div>
-            <p className="text-foreground mb-3 text-sm md:text-base">
-              I'm a Ph.D. Student at Future Space Lab, KAIST.
+          <div className="hero-txt">
+            <p className="hero-affil">I'm a Ph.D. student at Future Space Lab, KAIST.</p>
+            <p className="hero-lead">
+              My research focuses on understanding how spatial experiences are
+              formed through <span className="hero-hl">quantitative data</span>,
+              exploring the relationship between space and humans across{' '}
+              <span className="hero-hl">virtual and physical realities</span>.
             </p>
-
-            <p className="text-foreground mb-3 leading-relaxed text-justify text-sm md:text-base">
-              My research focuses on understanding how spatial experiences are formed through quantitative data. And I explore the relationship between space and humans, and seek new spatial experiences by crossing the boundaries between virtual and physical realities. Currently, I am investigating how the shape of space in virtual exhibition environments influences visitors' emotions, using physiological data and questionnaires.
+            <p className="hero-phil">
+              Space is not merely a backdrop, but an active medium that embodies
+              emotion and guides experience. By crossing the boundaries between
+              technology and art, engineering and the humanities, I strive to
+              design spatial experiences that resonate more deeply with people.
             </p>
-
-            <p className="text-foreground mb-4 leading-relaxed text-justify text-sm md:text-base">
-              Space is not merely a backdrop, but an active medium that embodies emotion and guides experience. By crossing the boundaries between technology and art, engineering and the humanities, I strive to design spatial experiences that resonate more deeply with people.
-            </p>
-          </div>
-
-          <div>
-            {/* Keywords */}
-            <div className="flex flex-wrap gap-2 mb-4 md:w-full md:flex-nowrap md:gap-2">
-              {keywords.map((keyword) => (
-                <KeywordChip key={keyword} label={keyword} />
-              ))}
-            </div>
-
-            {/* Icon Links */}
-            <div className="flex items-center gap-5">
-              <a
-                href="https://drive.google.com/file/d/1CpTFSzOtNIyO232ccVjlnij7SeNXd-59/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon-link"
-                title="CV"
-              >
-                <img src="/images/icon-cv.png" alt="CV" className="w-6 h-6 object-contain" />
-              </a>
-              <a
-                href="mailto:sa.bae@kaist.ac.kr"
-                className="icon-link"
-                title="Email"
-              >
-                <img src="/images/icon-email.png" alt="Email" className="w-6 h-6 object-contain" />
-              </a>
-              <a
-                href="https://scholar.google.com/citations?hl=en&user=5VLxQekAAAAJ"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon-link"
-                title="Google Scholar"
-              >
-                <img src="/images/icon-scholar.png" alt="Google Scholar" className="w-6 h-6 object-contain" />
-              </a>
-              <a
-                href="http://www.linkedin.com/in/sunahbae"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="icon-link"
-                title="LinkedIn"
-              >
-                <img src="/images/icon-linkedin.png" alt="LinkedIn" className="w-6 h-6 object-contain" />
-              </a>
+            <div className="hero-bottom">
+              <div className="hero-tags">
+                {keywords.map((k) => (
+                  <span key={k}>{k}</span>
+                ))}
+              </div>
+              <p className="hero-links">
+                {links.map((l) => (
+                  <a
+                    key={l.label}
+                    href={l.href}
+                    {...(l.external
+                      ? { target: '_blank', rel: 'noopener noreferrer' }
+                      : {})}
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+
+      <div className="hero-ticker-wrap">
+        <RecentTicker />
+      </div>
+    </div>
   );
 };

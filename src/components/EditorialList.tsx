@@ -26,6 +26,7 @@ export const VideoButton: React.FC<{ url: string }> = ({ url }) => (
 );
 
 interface EditorialRowProps {
+  id?: string;
   meta?: React.ReactNode;
   title: string;
   titleUrl?: string;
@@ -35,6 +36,7 @@ interface EditorialRowProps {
 }
 
 export const EditorialRow: React.FC<EditorialRowProps> = ({
+  id,
   meta,
   title,
   titleUrl,
@@ -45,7 +47,7 @@ export const EditorialRow: React.FC<EditorialRowProps> = ({
   const hasThumbnails = thumbnails && thumbnails.length > 0;
 
   return (
-    <div className={`ed-row${hasThumbnails ? '' : ' no-thumb'}`}>
+    <div id={id} className={`ed-row${hasThumbnails ? '' : ' no-thumb'}`}>
       <div>
         {meta && <div className="meta">{meta}</div>}
         <h3>

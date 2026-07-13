@@ -37,7 +37,7 @@ const Index = () => {
 
     const MAX = 130; // px the content can be dragged at most (visual travel cap)
     const RESIST = 240; // higher = stiffer rubber band (content moves less per scroll)
-    const TRIGGER = 1500; // accumulated overscroll (px) needed to fire the pop
+    const TRIGGER = 1000; // accumulated overscroll (px) needed to fire the pop
     const SNAP_MS = 520; // duration of the smooth glide to the next section
     const LOCKOUT = 700; // ms lockout right after a pop
 
@@ -206,7 +206,7 @@ const Index = () => {
         id="about"
         className="min-h-screen md:min-h-0 md:h-[calc(100vh-64px)] md:overflow-hidden md:snap-start md:snap-always scroll-mt-[88px] md:scroll-mt-16 flex flex-col"
       >
-        <div className="site-container w-full flex-1 flex items-center justify-center pt-8 pb-8 md:pt-0 md:pb-0">
+        <div className="site-container w-full flex-1 flex flex-col min-h-0">
           <HeroSection />
         </div>
       </div>

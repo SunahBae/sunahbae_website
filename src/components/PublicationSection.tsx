@@ -143,6 +143,7 @@ export const PublicationSection: React.FC = () => {
               return (
                 <EditorialRow
                   key={pub.id}
+                  id={pub.id}
                   meta={
                     <>
                       {pub.status && (
