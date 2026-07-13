@@ -37,7 +37,7 @@ const Index = () => {
 
     const MAX = 130; // px the content can be dragged at most (visual travel cap)
     const RESIST = 240; // higher = stiffer rubber band (content moves less per scroll)
-    const TRIGGER = 1700; // accumulated overscroll (px) needed to fire the pop
+    const TRIGGER = 1500; // accumulated overscroll (px) needed to fire the pop
     const SNAP_MS = 520; // duration of the smooth glide to the next section
     const LOCKOUT = 700; // ms lockout right after a pop
 
