@@ -64,7 +64,7 @@ export const publications: Publication[] = [
     title: 'Curve Type Matters: Emotional and Physiological Responses to Curved Walls in Virtual Reality Exhibition Space',
     authors: 'Sun Ah Bae, Jisoo Kang, Seung Hyun Cha',
     year: '2026',
-    thumbnails: [],
+    thumbnails: ['/images/pub-12.png'],
   },
   {
     id: 'pub-11',
