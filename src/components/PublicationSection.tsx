@@ -2,43 +2,12 @@ import React, { useMemo, useRef, useState } from 'react';
 import { publications, Publication } from '@/data/publications';
 import { EditorialRow, FilterGroup, SectionScrollbar, highlightMe } from './EditorialList';
 
-type PubType = 'journal' | 'conf' | 'ect';
-
-const getType = (pub: Publication): PubType => {
-  if (pub.badges.some((b) => b.type === 'journal')) return 'journal';
-  if (pub.badges.some((b) => b.type === 'conf')) return 'conf';
+/** TYPE 필터·배지 색 분류: type 텍스트의 시작 단어로 판별 */
+const getCategory = (pub: Publication): 'journal' | 'conf' | 'ect' => {
+  const t = pub.type.toLowerCase();
+  if (t.startsWith('journal')) return 'journal';
+  if (t.startsWith('conference')) return 'conf';
   return 'ect';
-};
-
-const getScope = (pub: Publication): string | undefined => {
-  if (pub.badges.some((b) => b.type === 'int')) return 'Int.';
-  if (pub.badges.some((b) => b.type === 'dom')) return 'Dom.';
-  return undefined;
-};
-
-const getBadgeUrl = (pub: Publication, type: 'link' | 'video'): string | undefined =>
-  pub.badges.find((b) => b.type === type)?.url;
-
-/**
- * Splits a venue like "Virtual Reality, Springer Nature [SCIE, Q1, 11.2%]"
- * into the display text and the journal grade for the badge.
- */
-const parseVenue = (venue: string): { text: string; grade?: string } => {
-  const match = venue.match(/^(.*?)\s*\[([^\]]*)\]\s*$/);
-  if (!match) return { text: venue };
-  const parts = match[2].split(',').map((s) => s.trim());
-  const acceptance = parts.find((p) => p.includes('%'));
-  const grade = parts.filter((p) => !p.includes('%')).join(' ');
-  return {
-    text: match[1] + (acceptance ? ` · Acceptance ${acceptance}` : ''),
-    grade: grade || undefined,
-  };
-};
-
-const badgeLabel = (type: PubType, grade?: string): string => {
-  if (type === 'journal') return grade ? `Journal · ${grade}` : 'Journal';
-  if (type === 'conf') return 'Conference';
-  return 'Etc.';
 };
 
 export const PublicationSection: React.FC = () => {
@@ -70,7 +39,7 @@ export const PublicationSection: React.FC = () => {
       types.includes(t.value) ||
       publications.some(
         (p) =>
-          getType(p) === t.value &&
+          getCategory(p) === t.value &&
           (years.length === 0 || years.includes(p.year))
       )
   );
@@ -82,14 +51,14 @@ export const PublicationSection: React.FC = () => {
         publications.some(
           (p) =>
             p.year === year &&
-            (types.length === 0 || types.includes(getType(p)))
+            (types.length === 0 || types.includes(getCategory(p)))
         )
     )
     .map((year) => ({ value: year, label: year }));
 
   const visible = publications.filter(
     (p) =>
-      (types.length === 0 || types.includes(getType(p))) &&
+      (types.length === 0 || types.includes(getCategory(p))) &&
       (years.length === 0 || years.includes(p.year))
   );
 
@@ -137,9 +106,7 @@ export const PublicationSection: React.FC = () => {
           <div className="year-group" key={year}>
             <p className="year">{year}</p>
             {items.map((pub) => {
-              const type = getType(pub);
-              const scope = getScope(pub);
-              const venue = parseVenue(pub.venue);
+              const category = getCategory(pub);
               return (
                 <EditorialRow
                   key={pub.id}
@@ -149,16 +116,16 @@ export const PublicationSection: React.FC = () => {
                       {pub.status && (
                         <span className="ed-badge submitted">{pub.status}</span>
                       )}
-                      <span className={`ed-badge ${type === 'ect' ? 'etc' : type}`}>
-                        {badgeLabel(type, venue.grade)}
+                      <span className={`ed-badge ${category === 'ect' ? 'etc' : category}`}>
+                        {pub.type}
                       </span>
-                      {scope && <span className="ed-badge scope">{scope}</span>}
-                      <span>{venue.text}</span>
+                      {pub.scope && <span className="ed-badge scope">{pub.scope}</span>}
+                      <span>{pub.venue}</span>
                     </>
                   }
                   title={pub.title}
-                  titleUrl={getBadgeUrl(pub, 'link')}
-                  videoUrl={getBadgeUrl(pub, 'video')}
+                  titleUrl={pub.link}
+                  videoUrl={pub.video}
                   subline={highlightMe(pub.authors)}
                   thumbnails={pub.thumbnails}
                 />
