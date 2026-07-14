@@ -915,7 +915,11 @@
   border-color: #143f34;
   background: #e6eeea;
 }
-.ed-section .ed-row .thumb { min-width: 0; }
+.ed-section .ed-row .thumb {
+  min-width: 0;
+  /* thumbnails sit vertically centered against the row's text */
+  align-self: center;
+}
 /* brief highlight when navigated to from the RECENT ticker */
 .ed-section .ed-row.ed-row--flash {
   animation: ed-row-flash 1.6s ease;
