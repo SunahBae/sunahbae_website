@@ -59,7 +59,7 @@ export const publications: Publication[] = [
     id: 'pub-12',
     status: 'Submitted',
     type: 'Journal · SCIE Q1',
-    scope: 'Dom.',
+    scope: 'Int.',
     venue: 'Virtual Reality, Springer Nature',
     title: 'Curve Type Matters: Emotional and Physiological Responses to Curved Walls in Virtual Reality Exhibition Space',
     authors: 'Sun Ah Bae, Jisoo Kang, Seung Hyun Cha',
