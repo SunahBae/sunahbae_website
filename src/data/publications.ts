@@ -48,7 +48,7 @@ export const publications: Publication[] = [
     id: 'pub-13',
     status: 'Submitted',
     type: 'Conference',
-    scope: 'Int.',
+    scope: 'Dom.',
     venue: 'Summer Conference of Society for Computational Design and Engineering, 2026',
     title: 'Research Directions for Adaptive Spaces Based on an Analysis of Combinations of Place Multiplicity and Autonomous Adaptivity (장소 다중성과 자율 적응성의 결합 양상 분석을 통한 적응형 공간 연구 방향 제안)',
     authors: 'Sun Ah Bae, Yujeung Eum, Yeongjo Kim, Dahye Jeon, Seung Hyun Cha',
