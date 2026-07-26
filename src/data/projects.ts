@@ -29,14 +29,14 @@ export const projects: Project[] = [
     title: '초시공간 교류를 위한 AR-AI-인지-건축 융합연구',
     role: 'Responsive Space Team Leader',
     organization: '한국연구재단',
-    year: '2024~',
+    year: '2024~2025',
   },
   {
     id: 'proj-3',
     title: '문화 환경 취약 지역 내 초중등학생을 위한 XR 뮤지엄',
     role: 'Project Leader',
     organization: '국가과학기술인력개발원',
-    year: '2023',
+    year: '2023~2024',
     badges: [
       { type: 'video', label: 'Video', url: 'https://youtu.be/WyMmuBkmWnY' },
     ],

@@ -57,7 +57,7 @@ export const publications: Publication[] = [
   },
   {
     id: 'pub-12',
-    status: 'Submitted',
+    status: 'Under Review',
     type: 'Journal · SCIE Q1',
     scope: 'Int.',
     venue: 'Virtual Reality, Springer Nature',
