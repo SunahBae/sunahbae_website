@@ -7,6 +7,8 @@ interface ImageCarouselProps {
   alt: string;
   className?: string;
   aspectRatio?: 'video' | 'square' | 'auto';
+  /** 'cover' fills the box (may crop); 'contain' shows the whole image */
+  fit?: 'cover' | 'contain';
 }
 
 export const ImageCarousel: React.FC<ImageCarouselProps> = ({
@@ -14,6 +16,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
   alt,
   className = '',
   aspectRatio = 'video',
+  fit = 'cover',
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -54,7 +57,7 @@ export const ImageCarousel: React.FC<ImageCarouselProps> = ({
           <img
             src={images[currentIndex]}
             alt={`${alt} - ${currentIndex + 1}`}
-            className="w-full h-full object-cover transition-opacity duration-300 hover:opacity-90"
+            className={`w-full h-full ${fit === 'contain' ? 'object-contain' : 'object-cover'} transition-opacity duration-300 hover:opacity-90`}
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = 'none';
             }}

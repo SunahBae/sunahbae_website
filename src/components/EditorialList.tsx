@@ -33,6 +33,8 @@ interface EditorialRowProps {
   videoUrl?: string;
   subline?: React.ReactNode;
   thumbnails?: string[];
+  /** how thumbnails fill their box: 'cover' crops, 'contain' shows the whole image */
+  thumbnailFit?: 'cover' | 'contain';
 }
 
 export const EditorialRow: React.FC<EditorialRowProps> = ({
@@ -43,6 +45,7 @@ export const EditorialRow: React.FC<EditorialRowProps> = ({
   videoUrl,
   subline,
   thumbnails,
+  thumbnailFit = 'cover',
 }) => {
   const hasThumbnails = thumbnails && thumbnails.length > 0;
 
@@ -64,7 +67,7 @@ export const EditorialRow: React.FC<EditorialRowProps> = ({
       </div>
       {hasThumbnails && (
         <div className="thumb">
-          <ImageCarousel images={thumbnails!} alt={title} aspectRatio="video" />
+          <ImageCarousel images={thumbnails!} alt={title} aspectRatio="video" fit={thumbnailFit} />
         </div>
       )}
     </div>
