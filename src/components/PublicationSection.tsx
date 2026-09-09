@@ -128,7 +128,6 @@ export const PublicationSection: React.FC = () => {
                   videoUrl={pub.video}
                   subline={highlightMe(pub.authors)}
                   thumbnails={pub.thumbnails}
-                  thumbnailFit="contain"
                 />
               );
             })}
