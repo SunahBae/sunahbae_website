@@ -104,7 +104,7 @@ export const publications: Publication[] = [
     title: 'The Effect of Artwork Size on Visitor Attention in Museum Curatorial Arrangement',
     authors: 'Dagyeom Chung, Sun Ah Bae, Gisung Han, Seung Hyun Cha',
     year: '2026',
-    thumbnails: [],
+    thumbnails: ['/images/pub-10.png'],
   },
   {
     id: 'pub-9',
