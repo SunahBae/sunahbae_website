@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const COPYRIGHT_TEXT = '© 2026.07 Sun Ah Bae. All rights reserved. | sa.bae@kaist.ac.kr';
+export const COPYRIGHT_TEXT = '© 2026.09 Sun Ah Bae. All rights reserved. | sa.bae@kaist.ac.kr';
 
 export const Footer: React.FC = () => {
   return (
