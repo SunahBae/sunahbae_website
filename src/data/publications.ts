@@ -70,10 +70,10 @@ export const publications: Publication[] = [
     type: 'Conference',
     scope: 'Dom.',
     venue: 'Summer Conference of Society for Computational Design and Engineering, 2026',
-    title: 'Research  (장소 다중성과 자율 적응성의 결합 양상 분석을 통한 적응형 공간 연구 방향 제안)',
-    authors: 'Dahye Jeon, Sun Ah Bae, Yujeung Eum, Yeongjo Kim, Seung Hyun Cha',
+    title: 'AI-Based Personalized Visual Cue System for Supporting Attention Recovery in VR Meditation for Novice Meditators  (VR 명상에서 명상 초보자의 주의 회복을 위한 AI 기반 개인 맞춤형 비주얼 큐 시스템 제안)',
+    authors: 'Dahye Jeon, Yeongjo Kim, Sun Ah Bae, Seung Hyun Cha',
     year: '2026',
-    thumbnails: [],
+    thumbnails: ['/images/pub-13.png'],
   },
   {
     id: 'pub-12',
