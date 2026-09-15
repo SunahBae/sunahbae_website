@@ -229,6 +229,6 @@ export const etcItems: EtcItem[] = [
     id: 'schol-6',
     category: 'Scholarship',
     title: '홍익대학교 조소과 자주장학금(80%)',
-    subline: '홍익대학교 · 대한민국 · 2020',
+    subline: '홍익대학교 · 대한민국 · 2019',
   },
 ];
