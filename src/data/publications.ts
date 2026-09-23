@@ -50,7 +50,7 @@ export const publications: Publication[] = [
     scope: 'Dom.',
     venue: 'Journal of Digital Contents Society, 2026',
     title: 'A Framework for XR Museums in Idle School Classrooms: An Implementation Strategy to Mitigate Cultural Accessibility Gaps  (학교 유휴교실 기반 XR 박물관 프레임워크: 문화접근성 격차 완화를 위한 구축 전략)',
-    authors: 'Sun Ah Bae, SeoHyun Bae, Hyun Woo Kim, Seung Hyun Cha',
+    authors: 'Sun Ah Bae, Seohyeun Bae, Hyun Woo Kim, Seung Hyun Cha',
     year: '2026',
     thumbnails: ['/images/pub-15.png'],
   },
