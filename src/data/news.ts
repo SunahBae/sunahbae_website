@@ -19,20 +19,20 @@ export const news: NewsItem[] = [
     kind: 'paper',
     kindLabel: 'Paper',
     href: '#pub-15', // "Virtual reality transition to underground"
-    html: '"A Framework for XR Museums in Idle School Classrooms: An Implementation Strategy to Mitigate Cultural Accessibility Gaps" accepted to <strong>Journal of Digital Contents Society</strong> (KCI)',
+    html: '"A Framework for XR Museums in Idle School Classrooms..." accepted to <strong>Journal of Digital Contents Society</strong> (KCI)',
   },
   {
     date: '2026.06',
     kind: 'paper',
     kindLabel: 'Paper',
     href: '#pub-11', // "Virtual reality transition to underground"
-    html: '"Virtual reality transition to underground: human responses across sequential spatial transitions" accepted to <strong>Scientific Reports</strong> (SCIE Q1)',
+    html: '"Virtual reality transition to underground..." accepted to <strong>Scientific Reports</strong> (SCIE Q1)',
   },
   {
     date: '2026.06',
     kind: 'paper',
     kindLabel: 'Paper',
     href: '#pub-10', // "The Effect of Artwork Size on Visitor Attention"
-    html: '"The Effect of Artwork Size on Visitor Attention in Museum Curatorial Arrangement" accepted to <strong>Design Computing and Cognition \'26</strong>',
+    html: '"The Effect of Artwork Size on Visitor Attention..." accepted to <strong>Design Computing and Cognition \'26</strong>',
   },
 ];
