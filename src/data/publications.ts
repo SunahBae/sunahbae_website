@@ -44,7 +44,7 @@ export const publications: Publication[] = [
     authors: 'Sun Ah Bae, Hyun Woo Kim, Yujeung Eum, Seung Hyun Cha',
     year: '2027',
     thumbnails: ['/images/pub-17.png'],
-  }, */
+  }, 
   {
     id: 'pub-16',
     status: 'Under Review',
@@ -55,7 +55,7 @@ export const publications: Publication[] = [
     authors: 'Sun Ah Bae, Jisoo Kang, Seung Hyun Cha',
     year: '2027',
     thumbnails: ['/images/pub-16.png'],
-  },
+  },*/
   {
     id: 'pub-15',
     type: 'Journal · KCI',
