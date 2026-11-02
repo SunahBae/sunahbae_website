@@ -33,6 +33,7 @@ export interface Publication {
 }
 
 export const publications: Publication[] = [
+  /**
   {
     id: 'pub-17',
     status: 'Under Review',
@@ -43,7 +44,7 @@ export const publications: Publication[] = [
     authors: 'Sun Ah Bae, Hyun Woo Kim, Yujeung Eum, Seung Hyun Cha',
     year: '2027',
     thumbnails: ['/images/pub-17.png'],
-  },
+  }, */
   {
     id: 'pub-16',
     status: 'Under Review',
